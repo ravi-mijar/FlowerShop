@@ -30,3 +30,7 @@ I have also created a FlowerFactory class that has static factory methods to ret
 Earlier I had tests like validItemCodeInsufficientQuantity, where I was under the impression that there will be a specific amount of inventory for each flower. But, the problem statement imposes no such restriction. So, removing those.
 
 I also didn't keep a separate object for the total price, I feel it is transient in nature, and can be quickly calculated from the Map<Bundle, Integer> being returned.
+
+Renamed Item to Flower. Seems unnecessary to generalize it at this stage. Also removed the FlowerFactory class, and copied the methods and variables over to flower. Made constructor of Flower private.
+
+Added documentation to methods.

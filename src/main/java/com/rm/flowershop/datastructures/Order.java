@@ -1,20 +1,18 @@
-/**
- * 
- */
 package com.rm.flowershop.datastructures;
 
 /**
+ * Class that defines the quantity of the flowers requested.
  * @author hawk
  *
  */
 public class Order {
 	
 	private int quantity;
-	private String itemCode;
+	private String flowerCode;
 	
-	public Order(int qty, String itemCode) {
+	public Order(int qty, String flCode) {
 		this.quantity = qty;
-		this.itemCode = itemCode;
+		this.flowerCode = flCode;
 	}
 	
 	/**
@@ -25,9 +23,9 @@ public class Order {
 	}
 	
 	/**
-	 * @return the itemCode
+	 * @return the flowerCode
 	 */
 	public String getItemCode() {
-		return itemCode;
+		return flowerCode;
 	}
 }

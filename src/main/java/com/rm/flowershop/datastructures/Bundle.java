@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.rm.flowershop.datastructures;
 
 /**
@@ -19,14 +16,14 @@ public class Bundle {
 	 */
 	private float pricePerBundle;
 	
-	private Item item;
+	private Flower flower;
 	
 	
-	public Bundle(int pieces, float pricePerBundle, Item it) {
+	public Bundle(int pieces, float pricePerBundle, Flower it) {
 		super();
 		this.pieces = pieces;
 		this.pricePerBundle = pricePerBundle;
-		this.item = it;
+		this.flower = it;
 	}
 	/**
 	 * @return the pieces
@@ -41,10 +38,10 @@ public class Bundle {
 		return pricePerBundle;
 	}
 	/**
-	 * @return the item
+	 * @return the flower
 	 */
-	public Item getItem() {
-		return item;
+	public Flower getFlower() {
+		return flower;
 	}
 	
 }
