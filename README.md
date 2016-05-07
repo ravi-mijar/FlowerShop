@@ -7,6 +7,12 @@ Download the code using 'git clone git@github.com:ravi-mijar/FlowerShop.git'
 I have used Maven as the build tool. 
 Use 'mvn -e clean install' to build the source, and run the JUnit tests. 
 
+If running without maven:
+Untar the tar file I submitted, and cd to the folder where you untar.
+Fire command
+On Linux : sh run-tests.sh
+On windows : run-tests.bat
+
 
 Design decisions, and brain dump:
 

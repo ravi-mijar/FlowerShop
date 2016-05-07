@@ -1,0 +1,1 @@
+java -cp .;target/lib/junit-4.11.jar;target/lib/hamcrest-core-1.3.jar;target/lib/log4j-api-2.5.jar;target/lib/log4j-core-2.5.jar;target/test-classes;target/FlowerShop-0.0.1-SNAPSHOT.jar org.junit.runner.JUnitCore com.rm.flowershop.FlowerShopTest
