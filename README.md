@@ -1,6 +1,15 @@
 README.md. 
 
 
+Building the solution: 
+Download the code using 'git clone git@github.com:ravi-mijar/FlowerShop.git'
+
+I have used Maven as the build tool. 
+Use 'mvn -e clean install' to build the source, and run the JUnit tests. 
+
+
+Design decisions, and brain dump:
+
 I will attempt to give explanations about my decisions, and list some assumptions I make down the road.
 This document is meant to be coarse, and should be more like a daily diary than a published, edited book.
 
