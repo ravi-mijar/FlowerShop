@@ -71,22 +71,6 @@ public class FlowerShopTest {
 	}
 
 	/**
-	 * Normal path
-	 */
-	@Test @Ignore
-	public void validItemCodeSufficientQuantity() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Quantity asked is more than inventory holds.
-	 */
-	@Test @Ignore
-	public void validItemCodeInsufficientQuantity() {
-		fail("Unimplemented");
-	}
-	
-	/**
 	 * Invalid Item code. 
 	 * Expect an error.
 	 */
@@ -119,7 +103,29 @@ public class FlowerShopTest {
 		orders.add(new Order(10, FlowerFactory.ROSE_CODE));
 		
 		Map<Bundle, Integer> shipment = shop.orderItems(orders);
-		System.out.println("#" + shipment);
+		Iterator<Bundle> it = shipment.keySet().iterator();
+		Bundle tempBundle;
+		float totalPrice = 0.0f;
+		while(it.hasNext()) {
+			tempBundle = it.next();
+			if(tempBundle.getItem().getItemCode().equals(FlowerFactory.LILY_CODE)) {
+				if(tempBundle.getPieces() == 9)
+					assertEquals(shipment.get(tempBundle), Integer.valueOf(1));
+				if(tempBundle.getPieces() == 6)
+					assertEquals(shipment.get(tempBundle), Integer.valueOf(1));
+			}
+			else if(tempBundle.getItem().getItemCode().equals(FlowerFactory.ROSE_CODE)) {
+				assertEquals(shipment.get(tempBundle), Integer.valueOf(1));
+			}
+			else if(tempBundle.getItem().getItemCode().equals(FlowerFactory.TULIP_CODE)) {
+				if(tempBundle.getPieces() == 5)
+					assertEquals(shipment.get(tempBundle), Integer.valueOf(2));
+				if(tempBundle.getPieces() == 3)
+					assertEquals(shipment.get(tempBundle), Integer.valueOf(1));
+			}
+			totalPrice += (tempBundle.getPricePerBundle() * shipment.get(tempBundle));
+		}
+		assertEquals(totalPrice, 97.72f, 0.01);
 	}
 	
 	
@@ -145,8 +151,6 @@ public class FlowerShopTest {
 			totalPrice += (temp.getPricePerBundle() * map.get(temp));
 		}
 		assertEquals(totalPrice, 41.9f, 0.005);
-		System.out.println("& "+ map);
-		System.out.println("Total cost is: " + totalPrice);
 	}
 	
 	@Test 

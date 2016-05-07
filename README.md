@@ -24,3 +24,9 @@ I configured SonarQube for the project, and was trying to get the coverage stats
 Added a multiple orders test case.
 
 Added log4j configuration and file.
+
+I removed Shipment class I had thought of earlier. It seems unnecessary for the scope.
+I have also created a FlowerFactory class that has static factory methods to return the flowers. Feels like a better way than creating these objects everytime in the tests. The constructor of the Item class is present anyway.
+Earlier I had tests like validItemCodeInsufficientQuantity, where I was under the impression that there will be a specific amount of inventory for each flower. But, the problem statement imposes no such restriction. So, removing those.
+
+I also didn't keep a separate object for the total price, I feel it is transient in nature, and can be quickly calculated from the Map<Bundle, Integer> being returned.

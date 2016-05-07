@@ -40,8 +40,14 @@ public class FlowerShopApp {
 	
 	public Map<Bundle, Integer> orderItem(Order order) {
 		if(order!=null && !this.isInventoryEmpty()) {
+			List<Bundle> bundlesOfCurrentFlowerOnly = new ArrayList<>();
+			for (Bundle bundle : this.currentBundles) {
+				if(order.getItemCode().equals(bundle.getItem().getItemCode())) {
+					bundlesOfCurrentFlowerOnly.add(bundle);
+				}
+			}
 			Stack<Bundle> result = new Stack<Bundle>();
-			if(basicSplittingFunction(this.currentBundles, order.getQuantity(), result, 0)) {
+			if(basicSplittingFunction(bundlesOfCurrentFlowerOnly, order.getQuantity(), result, 0)) {
 				HashMap<Bundle, Integer> noOfBundles = new HashMap<>();
 				Bundle temp = null;
 				while(!result.isEmpty()) {
@@ -92,12 +98,12 @@ public class FlowerShopApp {
 	private boolean basicSplittingFunction(List<Bundle> piecesPerBundle,
 			int requestedQty, Stack<Bundle> result, int totalSoFar) {
 		
-		List<Bundle> possibleBundles;
+
 		if (requestedQty - totalSoFar == 0) {
 			return true;
 		}
 		else {
-			possibleBundles = findFittingBundle(piecesPerBundle, (requestedQty-totalSoFar));
+			List<Bundle> possibleBundles = findFittingBundle(piecesPerBundle, (requestedQty-totalSoFar));
 			if(possibleBundles.isEmpty()) {
 				//nothing to do. No solution.
 				result.pop();
